@@ -1,5 +1,7 @@
 extends Camera3D
 
+const PLACEMENT_HEIGHT : float = 5
+
 @export var cursor: Node3D
 
 func get_mouse_overlay(screen_position: Vector2):
@@ -14,10 +16,24 @@ func get_mouse_overlay(screen_position: Vector2):
 	return space.intersect_ray(params)
 
 func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("fire"):
+		self._on_fire_triggered(event)
+	
 	if event is InputEventMouseMotion:
-		var overlay = get_mouse_overlay(event.position)
+		var overlay = self.get_mouse_overlay(event.position)
 		if not overlay.is_empty():
 			cursor.global_position = overlay.position
-		
-	if event is InputEventMouseButton:
-		
+
+func _on_fire_triggered(event: InputEvent) -> void:
+	var overlay = self.get_mouse_overlay(event.position)
+	if overlay.is_empty(): return
+	
+	var prefab = load("res://prefabs/fruit.tscn")
+	
+	var fruit = prefab.instantiate()
+	self.get_tree().get_root().add_child(fruit)
+	
+	fruit.add_to_group("fruits")
+	fruit.global_position = Vector3(overlay.position) + Vector3.UP * PLACEMENT_HEIGHT
+	
+	

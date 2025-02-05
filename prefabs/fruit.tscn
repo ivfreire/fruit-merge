@@ -1,3 +1,19 @@
-[gd_scene format=3 uid="uid://bh1ajbq8qxnua"]
+[gd_scene load_steps=3 format=3 uid="uid://b8peyjqrgd25k"]
 
-[node name="Fruit" type="CSGSphere3D"]
+[ext_resource type="Script" path="res://scripts/fruit.gd" id="1_3tv5s"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_nxrvq"]
+
+[node name="Fruit" type="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.999949, -0.0100878, 0, 0.0100878, 0.999949, 0, 0, 0)
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_3tv5s")
+level = null
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_nxrvq")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
