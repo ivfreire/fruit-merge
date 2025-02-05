@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://bh1ajbq8qxnua"]
+
+[node name="Fruit" type="CSGSphere3D"]
