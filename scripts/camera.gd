@@ -1,6 +1,6 @@
 extends Camera3D
 
-const PLACEMENT_HEIGHT : float = 5
+const PLACEMENT_HEIGHT : float = 1
 
 @export var cursor: Node3D
 
@@ -28,7 +28,7 @@ func _on_fire_triggered(event: InputEvent) -> void:
 	var overlay = self.get_mouse_overlay(event.position)
 	if overlay.is_empty(): return
 	
-	var prefab = load("res://prefabs/fruit.tscn")
+	var prefab = load("res://prefabs/fruits/blueberry.tscn")
 	
 	var fruit = prefab.instantiate()
 	self.get_tree().get_root().add_child(fruit)

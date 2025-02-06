@@ -9,11 +9,10 @@ transform = Transform3D(1, 0, 0, 0, 0.999949, -0.0100878, 0, 0.0100878, 0.999949
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_3tv5s")
-level = null
 
 [node name="Collider" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_nxrvq")
 
-[node name="Mesh" type="MeshInstance3D" parent="."]
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

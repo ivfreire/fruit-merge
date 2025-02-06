@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqn8hbpvnqc2w"]
+
+[ext_resource type="Script" path="res://scripts/fruit.gd" id="1_ifrbn"]
+[ext_resource type="PackedScene" uid="uid://bd2sc48fbkw6" path="res://models/fruits/watermelon.fbx" id="2_wloss"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5s6rt"]
+radius = 1.02198
+
+[node name="Watermelon" type="RigidBody3D"]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_ifrbn")
+level = 10
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.000364027, 0)
+shape = SubResource("SphereShape3D_5s6rt")
+
+[node name="Mesh" parent="." instance=ExtResource("2_wloss")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

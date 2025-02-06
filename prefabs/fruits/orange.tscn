@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://di28vlmtb53cq"]
+
+[ext_resource type="Script" path="res://scripts/fruit.gd" id="1_6e52x"]
+[ext_resource type="PackedScene" uid="uid://b5gomuf4k1hd7" path="res://models/fruits/orange.fbx" id="2_28iuy"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5s6rt"]
+radius = 0.144508
+
+[node name="Orange" type="RigidBody3D"]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_6e52x")
+level = 6
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.000364027, 0)
+shape = SubResource("SphereShape3D_5s6rt")
+
+[node name="Mesh" parent="." instance=ExtResource("2_28iuy")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

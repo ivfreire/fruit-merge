@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkpw6g7dldlf3"]
+
+[ext_resource type="Script" path="res://scripts/fruit.gd" id="1_kce4t"]
+[ext_resource type="PackedScene" uid="uid://dopnbmoxgwyb0" path="res://models/fruits/strawberry.fbx" id="2_ghfy7"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5s6rt"]
+radius = 0.0568233
+
+[node name="Strawberry" type="RigidBody3D"]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_kce4t")
+level = 1
+
+[node name="Mesh" parent="." instance=ExtResource("2_ghfy7")]
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_5s6rt")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
