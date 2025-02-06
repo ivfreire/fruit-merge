@@ -1,6 +1,19 @@
 extends Camera3D
 
 const PLACEMENT_HEIGHT : float = 1
+const FRUITS = [
+	"blueberry",
+	"strawberry",
+	"grapes",
+	"peach",
+	"lemon",
+	"plum",
+	"orange",
+	"apple",
+	"pineapple",
+	"melon",
+	"watermelon"
+]
 
 @export var cursor: Node3D
 
@@ -28,7 +41,8 @@ func _on_fire_triggered(event: InputEvent) -> void:
 	var overlay = self.get_mouse_overlay(event.position)
 	if overlay.is_empty(): return
 	
-	var prefab = load("res://prefabs/fruits/blueberry.tscn")
+	var fruit_name = FRUITS[randi() % 5]
+	var prefab = load("res://prefabs/fruits/" + fruit_name + ".tscn")
 	
 	var fruit = prefab.instantiate()
 	self.get_tree().get_root().add_child(fruit)
