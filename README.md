@@ -1,3 +1,6 @@
-# Fruit Merge 2D
+# Fruit Merge 3D
 
-Simple fruit merging3D game made with Godot Engine.
+Simple fruit merging 3D game made with Godot Engine.
+
+
+![Game Screenshot](./screenshot.png)
