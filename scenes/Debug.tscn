@@ -14,9 +14,23 @@ data = PackedVector3Array(0, 0.0056, 0, 0.0965, 0.0128, 0.0701, -0.0369, 0.0128,
 [node name="Camera" type="Camera3D" parent="." node_paths=PackedStringArray("cursor")]
 transform = Transform3D(1, 0, 0, 0, 0.799465, 0.600713, 0, -0.600713, 0.799465, 0, 13.412, 15.44)
 projection = 1
-size = 3.595
+size = 2.06
 script = ExtResource("1_1372x")
 cursor = NodePath("../Cursor")
+
+[node name="Control" type="Control" parent="Camera"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Points" type="Label" parent="Camera/Control"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 64.0
+offset_bottom = 47.0
+text = "0"
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.179953, -0.800157, 0.572159, 0, 0.581655, 0.813436, -0.983675, 0.14638, -0.10467, 0, 20, 0)
@@ -34,12 +48,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.42881)
 material_override = ExtResource("5_vx5et")
 size = Vector3(2.195, 0, 8.305)
 
-[node name="bowl" parent="." instance=ExtResource("5_6vdir")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.714769)
+[node name="Bowl" parent="." instance=ExtResource("5_6vdir")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.575, -0.715)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="bowl/Bowl" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Bowl/Bowl" index="0"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="bowl/Bowl/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bowl/Bowl/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_8sn27")
 
-[editable path="bowl"]
+[editable path="Bowl"]

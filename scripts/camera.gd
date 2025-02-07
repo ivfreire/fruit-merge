@@ -50,4 +50,5 @@ func _on_fire_triggered(event: InputEvent) -> void:
 	fruit.add_to_group("fruits")
 	fruit.global_position = Vector3(overlay.position) + Vector3.UP * PLACEMENT_HEIGHT
 	
-	
+func _process(delta: float) -> void:
+	$Control/Points.text = str(Global.points)

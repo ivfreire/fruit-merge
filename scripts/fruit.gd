@@ -24,6 +24,8 @@ func _ready() -> void:
 	self.created_at = Time.get_ticks_msec()
 	self.linear_damp = 0.1
 	self.add_to_group("fruits")
+	
+	Global.points += self.level * 10
 
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("fruits"):

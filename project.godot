@@ -15,6 +15,10 @@ run/main_scene="res://scenes/Debug.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Global="*res://scripts/global.gd"
+
 [display]
 
 window/size/viewport_width=405
@@ -37,5 +41,5 @@ fire={
 [rendering]
 
 renderer/rendering_method="mobile"
-environment/defaults/default_clear_color=Color(0.18019, 0.191107, 0.177854, 1)
+anti_aliasing/quality/msaa_2d=2
 anti_aliasing/quality/msaa_3d=1
