@@ -28,6 +28,7 @@ func select_fruit() -> RigidBody3D:
 	var fruit = prefab.instantiate()
 	
 	self.get_tree().get_root().add_child(fruit)
+	print(fruit_name)
 	
 	return fruit
 
@@ -49,11 +50,9 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		var overlay = self.get_mouse_overlay(event.position)
 		
-		print(self.current_fruit.global_position)
-		
 		if not overlay.is_empty():
 			cursor.global_position = overlay.position
-			self.current_fruit.global_position = overlay.position
+			self.current_fruit.global_position = Vector3(overlay.position) + 1 * Vector3.UP
 
 func _on_fire_triggered(event: InputEvent) -> void:
 	var overlay = self.get_mouse_overlay(event.position)
